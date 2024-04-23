@@ -72,12 +72,12 @@ function App() {
   return (
     <>
       <Button onClick={fetchRecipe}>Random Recipe</Button>
-      <div className="mx-auto px-2 py-12 bg-slate-100 flex justify-center items-center flex-row min-h-screen flex-wrap md:w-1/2">
+      <div className="mx-auto px-2 py-12 flex justify-center items-center flex-row min-h-screen flex-wrap md:w-1/2">
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         {recipe && (
           <>
-            <h1 className="text-2xl font-semibold w-full mx-auto text-center">
+            <h1 className="text-2xl font-bold w-full mx-auto text-center">
               {recipe.strMeal} <span>({recipe.strCategory})</span>
             </h1>
             <div className="py-4 flex gap-4 flex-wrap justify-around items-start">
