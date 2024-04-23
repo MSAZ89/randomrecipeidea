@@ -76,29 +76,31 @@ function App() {
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         {recipe && (
-          <div className="py-4 flex gap-4 flex-wrap justify-around items-start">
-            <div>
-              <h1 className="text-2xl font-semibold">
-                {recipe.strMeal} <span>({recipe.strCategory})</span>
-              </h1>
-              <img
-                className="rounded-2xl"
-                width={300}
-                src={recipe.strMealThumb}
-                alt={recipe.strMeal}
-              />
+          <>
+            <h1 className="text-2xl font-semibold w-full mx-auto text-center">
+              {recipe.strMeal} <span>({recipe.strCategory})</span>
+            </h1>
+            <div className="py-4 flex gap-4 flex-wrap justify-around items-start">
+              <div>
+                <img
+                  className="rounded-2xl"
+                  width={300}
+                  src={recipe.strMealThumb}
+                  alt={recipe.strMeal}
+                />
+              </div>
+              <div>
+                <h2 className="font-semibold text-xl mb-2">Ingredients:</h2>
+                <ul>
+                  {ingredientsAndMeasures.map((item, index) => (
+                    <li key={index}>
+                      {item.measure} {item.ingredient}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div>
-              <h2 className="font-semibold text-xl mb-2">Ingredients:</h2>
-              <ul>
-                {ingredientsAndMeasures.map((item, index) => (
-                  <li key={index}>
-                    {item.measure} {item.ingredient}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          </>
         )}
         <div className="py-4 w-3/4">{recipe?.strInstructions} </div>
       </div>
